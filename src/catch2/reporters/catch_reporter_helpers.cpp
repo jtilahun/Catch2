@@ -315,6 +315,11 @@ namespace Catch {
             return;
         }
 
+        if ( totals.assertions.total() > 0 && totals.testCases.allOk() ) {
+            stream << streamColour.guardColour( Colour::ResultExpectedFailure )
+                   << "All tests OK\n";
+        }
+
         std::vector<SummaryColumn> columns;
         // Don't include "skipped assertions" in total count
         const auto totalAssertionCount =

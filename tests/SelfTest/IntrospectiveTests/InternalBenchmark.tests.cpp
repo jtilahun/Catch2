@@ -441,6 +441,11 @@ TEST_CASE("Failing benchmarks", "[!benchmark][.approvals]") {
     }
 }
 
+TEST_CASE( "Failing benchmark should-fail reports all tests OK",
+           "[!shouldfail][!benchmark][.approvals]" ) {
+    BENCHMARK( "Asserting benchmark" ) { REQUIRE( 1 == 2 ); };
+}
+
 TEST_CASE( "Failing benchmark respects should-fail",
            "[!shouldfail][!benchmark][.approvals]" ) {
     BENCHMARK( "Asserting benchmark" ) { REQUIRE( 1 == 2 ); };

@@ -486,6 +486,15 @@ set_tests_properties("Benchmarking::FailureReporting::FailMacro"
     FAIL_REGULAR_EXPRESSION "successes=\"1\""
 )
 
+add_test(NAME "Benchmarking::FailureReporting::ShouldFailReportsAllTestsOk"
+  COMMAND
+    $<TARGET_FILE:SelfTest> "Failing benchmark should-fail reports all tests OK"
+)
+set_tests_properties("Benchmarking::FailureReporting::ShouldFailReportsAllTestsOk"
+  PROPERTIES
+    PASS_REGULAR_EXPRESSION "All tests OK"
+)
+
 add_test(NAME "Benchmarking::FailureReporting::ShouldFailIsRespected"
   COMMAND
     $<TARGET_FILE:SelfTest> "Failing benchmark respects should-fail"
